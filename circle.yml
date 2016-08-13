@@ -1,3 +1,7 @@
+general:
+  branches:
+    only:
+     - master
 machine:
   ruby:
     version: 2.3.0
@@ -7,7 +11,7 @@ test:
 
 deployment:
   prod:
-    branch: dev
+    branch: master
     commands:
       - bundle exec middleman build
       - aws s3 sync --region=us-west-2 build/ s3://www.coffeaconsulting.com/ --delete
