@@ -7,4 +7,5 @@
 
 # Building/Deploying
 
-Run `deploy.sh`
+Run `deploy.sh` if you've run `aws configure --profile shawn` to completion. CircleCI will build and
+deploy anything pushed to the master branch.
