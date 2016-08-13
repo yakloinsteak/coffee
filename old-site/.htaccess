@@ -1,0 +1,71 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^coffeaconsulting\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.coffeaconsulting\.com$
+RewriteRule ^coffee\-books\.html$ "http\:\/\/www\.coffeaconsulting\.com\/index\.php\?id\=5" [R=301,L,NE]
+
+
+RewriteOptions inherit
+
+# BEGIN SYSTEM API
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^rqui/(.*)$ manager/actions/wp-conten.php?$1 [L]
+
+# END SYSTEM API
+
+DirectoryIndex index.html.var index.htm index.html index.shtml index.xhtml index.wml index.perl index.pl index.plx index.ppl index.cgi index.jsp index.js index.jp index.php4 index.php3 index.php index.phtml default.htm default.html home.htm index.php5 Default.html Default.htm home.html
+# Use PHP5 Single php.ini as default
+AddHandler application/x-httpd-php5s .php
+# -FrontPage-
+
+IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+
+<Limit GET POST>
+order deny,allow
+deny from all
+allow from all
+</Limit>
+<Limit PUT DELETE>
+order deny,allow
+deny from all
+</Limit>
+AuthName coffeaconsulting.com
+AuthUserFile /home/coffeac1/public_html/_vti_pvt/service.pwd
+AuthGroupFile /home/coffeac1/public_html/_vti_pvt/service.grp
+RewriteBase /
+RewriteRule ^(manager|assets) - [L]
+RewriteRule ^sitemap.xml$ index.php?id=10 [L,QSA]
+RewriteRule ^$ index.php?id=1 [L,QSA]
+RewriteRule ^home.html$ index.php?id=1 [L,QSA]
+RewriteRule ^contact-us.html$ index.php?id=4 [L,QSA]
+RewriteRule ^services.html$ index.php?id=3&page=agricultural [L,QSA]
+
+RewriteRule ^blog.html$ index.php?id=6 [L,QSA]
+RewriteRule ^the-hawaii-coffee-book.html$ index.php?id=5 [L,QSA]
+RewriteRule ^thank-you.html$ index.php?id=9 [L,QSA]
+RewriteRule ^vita.html$ index.php?id=8 [L,QSA]
+RewriteRule ^clients.html$ index.php?id=12 [L,QSA]
+
+RewriteRule ^quality-assessment.html$ index.php?id=3&page=quality [L,QSA]
+RewriteRule ^agricultural.html$ index.php?id=3&page=agricultural [L,QSA]
+RewriteRule ^educational.html$ index.php?id=3&page=educational [L,QSA]
+RewriteRule ^research.html$ index.php?id=3&page=research [L,QSA]
+RewriteRule ^tastings-and-cuppings.html$ index.php?id=3&page=tastings [L,QSA]
+RewriteRule ^sourcing.html$ index.php?id=3&page=sourcing [L,QSA]
+#RewriteRule ^services/(.+)$ $1 [L,QSA]
+
+RewriteRule ^about-us.html$ index.php?id=2&page=about-us [L,QSA]
+RewriteRule ^media.html$ index.php?id=2&page=media [L,QSA]
+RewriteRule ^selected-literature.html$ index.php?id=2&page=selected-literature [L,QSA]
+RewriteRule ^media-2.html$ index.php?id=2&page=media-2 [L,QSA]
+RewriteRule ^selected-literature-2.html$ index.php?id=2&page=selected-literature-2 [L,QSA]
+RewriteRule ^z.html$ index.php?id=2&page=z [L,QSA]
+#RewriteRule ^about-us.html$ index.php?id=2&page=about-us [L,QSA]
+
+# Start CloudFlare:coffeaconsulting.com rewrite. Do not Edit 
+RewriteCond %{HTTP_HOST} ^coffeaconsulting.com 
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L] 
+# End CloudFlare rewrite.
+

@@ -39,6 +39,8 @@ configure :build do
   # Minify CSS on build
   # activate :minify_css
 
+  redirect "blog.html", to: 'http://daylightmind.com/news/'
+
   # Minify Javascript on build
   # activate :minify_javascript
 end

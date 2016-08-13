@@ -4,17 +4,72 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta charset="utf-8">
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
-
-    <!-- Use title if it's in the page YAML frontmatter -->
-    <title><%= current_page.data.title || "Middleman" %></title>
-
-    <link href='//fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+    <meta name="description" content="<%= current_page.data.description %>">
+    <meta name="google-site-verification" content="t75mcN3mE2sUd8-6ijPtc2lPymetqE_MCpcxUAVhqBE">
+    <title><%= current_page.data.title || "Coffea Consulting" %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <%= stylesheet_link_tag :site %>
     <%= javascript_include_tag :all %>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-18958677-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
   </head>
 
   <body class="<%= page_classes %>">
-    <%= yield %>
+    <header>
+      <div class="container">
+       <%= partial 'navigation' %>
+     </div>
+    </header>
+
+    <section class="hero is-primary is-medium is-hidden-mobile">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            <img src="/images/logo_crisp.png" alt="Coffea Consulting logo">
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="columns">
+        <div class='column is-3'>
+          <%= partial 'menu' %>
+        </div>
+        <div class='column main is-9'>
+          <%= yield %>
+        </div>
+      </div>
+    </section>
+
+    <footer class="section">
+      <ul class="contact-info">
+        <li>
+          <a href='mailto:steiman@coffeaconsulting.com'>
+            <!-- steiman@coffeaconsulting.com -->
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          808.223.0982
+        </li>
+        <li id='facebook'>
+          <a href='http://www.facebook.com/coffeaconsulting' target='_blank' alt='Find us on Facebook' title='Find us on Facebook'>
+            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+        </a>
+      </li>
+      </ul>
+    </footer>
   </body>
 </html>

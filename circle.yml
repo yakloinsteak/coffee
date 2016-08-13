@@ -1,0 +1,13 @@
+machine:
+  ruby:
+    version: 2.3.0
+test:
+  post:
+    - bundle exec middleman build
+
+deployment:
+  prod:
+    branch: dev
+    commands:
+      - bundle exec middleman build
+      - aws s3 sync --region=us-west-2 build/ s3://www.coffeaconsulting.com/ --delete
