@@ -1,34 +1,34 @@
-<nav class="nav is-hidden-tablet">
+<nav class="nav is-hidden-tablet has-shadow">
   <div class="nav-left">
-    <a class="nav-item is-brand" href="#">
+    <a class="nav-item is-brand" href="/index.html">
       <img src="/images/logo_crisp.png" alt="Coffea Consulting logo">
     </a>
   </div>
 
-  <span class="nav-toggle">
-    <span class='is-flex-touch'>
-      <span>
-        <a class="nav-item" href="index.html">Home</a>
-      </span>
-      <span></span>
-      <span></span>
-    </span>
+  <span class="nav-toggle" onclick="openNav()">
+    <span></span>
+    <span></span>
+    <span></span>
   </span>
 
-  <div class="nav-right nav-menu">
-    <a class="nav-item" href="index.html">
-      Home
-    </a>
-    <a class="nav-item" href="about.html">
-      About
-    </a>
+  <!-- Overlay Nav -->
+  <div id="mobileNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-    <a class="nav-item" href="http://daylightmind.com/news/">
-      Blog
-    </a>
-
-    <a class="nav-item" href="services.html">
-      Services
-    </a>
+    <div class="overlay-content">
+      <a href="/index.html">Home</a>
+      <a href="/clients.html">Clients</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/books.html">Books</a>
+      <a href='/about/about-us.html'>About Us</a>
+      <a href='/about/media-appearances.html'>Selected Media Appearances</a>
+      <a href='/about/selected-literature.html'>Selected Literature</a>
+      <a href='/services/agricultural.html'>Agricultural</a>
+      <a href='/services/quality.html'>Quality Assessment</a>
+      <a href='/services/educational.html'>Educational</a>
+      <a href='/services/research.html'>Research</a>
+      <a href='/services/tastings-and-cuppings.html'>Private Tastings and Cuppings</a>
+      <a href='/services/sourcing.html'>Sourcing</a>
+    </div>
   </div>
 </nav>
