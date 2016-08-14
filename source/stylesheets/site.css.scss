@@ -126,12 +126,11 @@ p {
 }
 
 // Tastings
-
 img.cupping {
   float: left;
-  height: 14em;
   margin-right: 1.5rem;
 }
+
 
 // Quality
 p.cupping img:first-child {
@@ -144,4 +143,9 @@ p.cupping img:nth-child(2) {
   float: right;
   height: 22rem;
   margin-right: 1.5rem;
+}
+
+// Research
+.research-image {
+  height: 25rem;
 }
