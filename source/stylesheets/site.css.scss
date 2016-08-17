@@ -25,7 +25,7 @@ $black: #181109;
 }
 
 body .main {
-  font-size: $size-5;
+  font-size: $size-4;
 }
 
 .contact-info  {
@@ -46,7 +46,7 @@ body .main {
 
 li.well-spaced {
   margin-bottom: 1.3rem;
-  line-height: 1.3rem;
+  line-height: 1.8rem;
 }
 
 h1.client-type, h2.client-type {
@@ -70,16 +70,9 @@ h1.client-type, h2.client-type {
 }
 
 // home (index)
-.index img.flowers {
-  height: 22rem;
-  float: right;
-  margin-left: 1.5rem;
-}
-
 .index img.cross {
-  height: 22rem;
-  float: left;
-  margin-right: 1.5rem;
+  display: block;
+  margin: 0 auto;
 }
 
 
