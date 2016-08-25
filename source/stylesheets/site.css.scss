@@ -35,6 +35,11 @@ body .main {
   }
 }
 
+// Footer
+footer.section {
+  padding-top: 20px
+}
+
 .contact-info  {
   text-align: center;
 }
@@ -113,7 +118,7 @@ p {
   margin-bottom: 1.2em;
 }
 
-.appearance-images {
+.centered-images {
   display: flex;
   justify-content: center;
 }
@@ -151,3 +156,4 @@ p.cupping img:nth-child(2) {
 .research-image {
   height: 25rem;
 }
+
