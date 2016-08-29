@@ -36,8 +36,11 @@ body .main {
 }
 
 // Footer
-footer.section {
-  padding-top: 20px
+.main-footer {
+  font-size: 80%;
+  margin-top: 1.5em;
+  @include tablet {
+  }
 }
 
 .contact-info  {
@@ -49,7 +52,10 @@ footer.section {
 }
 
 .clients .client-card {
-  min-height: 24rem;
+  @include tablet {
+    width: 32%;
+    min-height: 24rem;
+  }
   margin: 1rem;
   li {
     color: $primary
@@ -115,7 +121,11 @@ img.centered {
 }
 
 p {
-  margin-bottom: 1.2em;
+  margin-bottom: 1.0em;
+}
+
+p:last-child {
+  margin-bottom: 0.0em;
 }
 
 .centered-images {
