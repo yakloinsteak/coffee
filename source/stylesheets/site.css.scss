@@ -16,6 +16,10 @@ $black: #181109;
 
 @import "navigation";
 
+html {
+  font-size: $size-7;
+}
+
 * {
   font-family: 'Josefin Sans', sans-serif;
 }
@@ -29,9 +33,9 @@ $black: #181109;
 }
 
 body .main {
-  font-size: $size-4;
+  font-size: $size-5;
   @include tablet {
-    font-size: $size-3;
+    font-size: $size-4;
   }
 }
 
@@ -143,6 +147,10 @@ p:last-child {
     margin: 0 auto;
   }
   text-align: center;
+}
+
+select {
+  font-size: $size-6;
 }
 
 // Tastings
